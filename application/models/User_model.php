@@ -11,7 +11,7 @@ public function __construct()
 }
 public function insert($data)
 {
-     if($this->db->insert('tblUser',$data)) return true;
+     if($this->db->insert('steetech_tblUser',$data)) return true;
      else return false;
 
        
@@ -20,7 +20,7 @@ public function insert($data)
 public function getUser($con)
 {
     $this->db->select('*');
-    $this->db->from('tblUser');
+    $this->db->from('steetech_tblUser');
     $this->db->where('username',$con['username']);
     $this->db->where('password',$con['password']);
     $qresult = $this->db->get();        
@@ -35,7 +35,7 @@ public function getDoctor(){
 }
 public function getDoctorbyId($id){
         $this->db->select('*');
-        $this->db->from('tbldoctor');
+        $this->db->from('steetech_tblDoctor');
         $this->db->where('id',$id);
         $qresult = $this->db->get();        
         $result = $qresult->result();
@@ -44,7 +44,7 @@ public function getDoctorbyId($id){
 public function getDoctorGallery()
 {
      $this->db->select('*');
-     $this->db->from('tblGallery');
+     $this->db->from('steetech_tblGallery');
      $qresult = $this->db->get();        
      $result = $qresult->result();
      return $result;
@@ -52,11 +52,11 @@ public function getDoctorGallery()
 
 public function uploadgallery($data)
 {
-    $this->db->insert('tblGallery',$data);
+    $this->db->insert('steetech_tblGallery',$data);
 }
 public function getdoctornamebyid($id){
     $this->db->select('name');
-    $this->db->from('tbldoctor');
+    $this->db->from('steetech_tbldoctor');
     $this->db->where('id',$id);
     $qresult = $this->db->get();        
     $result = $qresult->result();
@@ -68,7 +68,7 @@ public function getdoctornamebyid($id){
 public function deletedoctor($id){
     $this->db->set('status',0);
     $this->db->where('id',$id);
-    $this->db->update('tbldoctor');
+    $this->db->update('steetech_tbldoctor');
     
 }
 
@@ -76,7 +76,7 @@ public function updatedoctor($data){
         $this->db->set('name',$data['name']);
         $this->db->set('address',$data['address']);
         $this->db->where('id',$data['id']);
-        if($this->db->update('tbldoctor')) return True;
+        if($this->db->update('steetech_tbldoctor')) return True;
         else return false;
 }
 }

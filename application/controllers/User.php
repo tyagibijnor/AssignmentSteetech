@@ -59,8 +59,8 @@ class User extends CI_Controller {
 
     public function registration(){
             if($this->input->post('signupSubmit')){ 
-            $this->form_validation->set_rules('username', 'Username', 'required|is_unique[tblUser.username]'); 
-            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[tblUser.email]'); 
+            $this->form_validation->set_rules('username', 'Username', 'required|is_unique[steetech_tblUser.username]'); 
+            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[steetech_tblUser.email]'); 
             $this->form_validation->set_rules('password', 'password', 'required'); 
             $this->form_validation->set_rules('confirmpassword', 'confirm password', 'required|matches[password]');  
             $userData = array( 
