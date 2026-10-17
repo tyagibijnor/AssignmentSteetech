@@ -66,7 +66,8 @@
 switch (ENVIRONMENT)
 {
 	case 'development':
-		error_reporting(-1);
+		// CodeIgniter 3.1.11 emits compatibility deprecations on PHP 8.2+.
+		error_reporting(PHP_VERSION_ID >= 80200 ? E_ALL & ~E_DEPRECATED : -1);
 		ini_set('display_errors', 1);
 	break;
 

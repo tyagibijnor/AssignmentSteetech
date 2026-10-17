@@ -28,25 +28,23 @@ This project is built using PHP and CodeIgniter and includes a basic user system
 - `uploads/` – uploaded gallery images
 
 ## Prerequisites
-- PHP 5.6+ / compatible environment
-- Apache or Nginx web server
-- MySQL database
-- CodeIgniter environment configured correctly
+- PHP 7.4 or newer
+- A web browser
+- MySQL and PHP's `mysqli` extension to use login, registration, and doctor/gallery features
 
 ## Setup Instructions
-1. Clone or download the project into your local web server directory.
-2. Configure your database settings in `application/config/database.php`.
-3. Create the required tables such as `tblUser`, `tbldoctor`, and `tblGallery`.
-4. Set the base URL in `application/config/config.php` according to your local server.
-5. Place the project in the server root (for example, `htdocs/AssignmentSteetech` for XAMPP).
-6. Start the server and open the project in your browser.
+1. Install PHP. To use the database-backed features, also install MySQL and enable the PHP `mysqli` extension.
+2. From the project directory, start the built-in PHP web server:
+
+   ```sh
+   php -S 127.0.0.1:8000 router.php
+   ```
+
+3. Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
+4. To enable login, registration, and doctor/gallery features, create the `steetech` database and required tables/stored procedure, then update `application/config/database.php` with your MySQL credentials.
 
 ## Run the Application
-Open the following URL in your browser:
-
-`http://localhost/AssignmentSteetech`
-
-If the project is configured in a virtual host, use that URL instead.
+The login screen can be viewed without a database. Database-backed actions require a configured MySQL database, including `tblUser`, `tbldoctor`, `tblGallery`, and the `GetAllDoctor()` stored procedure.
 
 ## Notes
 This application demonstrates a simple CRUD-style workflow for managing doctor information along with user authentication and file uploads.
